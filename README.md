@@ -1,4 +1,4 @@
-# NestJS GraphQL  
+# NestJS GraphQL and PostgreSQL Demo 
 
 ## Installation
 
