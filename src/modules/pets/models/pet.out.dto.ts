@@ -1,7 +1,7 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class Pet {
+export class PetOutputDTO {
   @Field(type => Int)
   id: number;
   @Field()

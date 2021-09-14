@@ -2,12 +2,22 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Pet {
+type PetOutputDTO {
   id: Int!
   name: String!
   type: String
 }
 
 type Query {
-  pets: [Pet!]!
+  pets: [PetOutputDTO!]!
+}
+
+type Mutation {
+  createPet(PetInputDTO: PetInputDTO!): PetOutputDTO!
+}
+
+input PetInputDTO {
+  id: Int!
+  name: String!
+  type: String
 }
