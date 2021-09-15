@@ -23,4 +23,8 @@ export class PetService {
     return petResult;
   }
 
+  async findOne(id: number): Promise<PetOutputDTO> {
+    const petById = await this.petsRepository.findOneOrFail(id);
+    return petById;
+  }
 }
