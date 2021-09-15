@@ -31,9 +31,12 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-## Add  
-`.env` file in the root folder with all your local variable  
-  - Ex.
+***********************************************
+
+## Important notes    
+ It's common to use `.env` files, holding key-value pairs where each key represents a particular value, to represent each environment.  
+ A good approach for using this technique in Nest is to create a ConfigModule that exposes a ConfigService which loads the appropriate `.env` file.  
+  - `.env` Ex:
     ```
     ## PostgreSQL DATABASE
     DB_HOST=your_HOST
@@ -42,3 +45,5 @@ $ npm run test:cov
     DB_USER=your_DB_User
     DB_PASS=your_PASS
     ```
+    https://docs.nestjs.com/techniques/configuration  
+
