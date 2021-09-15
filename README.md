@@ -31,3 +31,14 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## Add  
+`.env` file in the root folder with all your local variable  
+  - Ex.
+    ```
+    ## PostgreSQL DATABASE
+    DB_HOST=your_HOST
+    DB_PORT=5432
+    DB_NAME=PET_STORE
+    DB_USER=your_DB_User
+    DB_PASS=your_PASS
+    ```
