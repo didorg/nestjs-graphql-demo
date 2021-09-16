@@ -3,8 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import Pet from 'src/persistence/entities/pet/pet.entity';
 import { Repository } from 'typeorm';
-import { PetInputDTO } from '../../models/pet.in.dto';
-import { PetOutputDTO } from '../../models/pet.out.dto';
+import { PetInputDTO } from '../../dto/pet.in.dto';
+import { PetOutputDTO } from '../../dto/pet.out.dto';
 
 @Injectable()
 export class PetService {

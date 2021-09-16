@@ -8,17 +8,38 @@ type PetOutputDTO {
   type: String
 }
 
+type Owner {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 type Query {
   pets: [PetOutputDTO!]!
   pet(id: Int!): PetOutputDTO!
+  owners: [Owner!]!
+  owner(id: Int!): Owner!
 }
 
 type Mutation {
   createPet(PetInputDTO: PetInputDTO!): PetOutputDTO!
+  createOwner(createOwnerInput: CreateOwnerInput!): Owner!
+  updateOwner(updateOwnerInput: UpdateOwnerInput!): Owner!
+  removeOwner(id: Int!): Owner!
 }
 
 input PetInputDTO {
   id: Int!
   name: String!
   type: String
+}
+
+input CreateOwnerInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateOwnerInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
 }
