@@ -31,6 +31,10 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Debugging
+https://javascript.plainenglish.io/debugging-nestjs-in-vscode-d474a088c63b
+
 ***********************************************
 
 ## Important notes    
@@ -46,4 +50,3 @@ $ npm run test:cov
     DB_PASS=your_PASS
     ```
     https://docs.nestjs.com/techniques/configuration  
-
