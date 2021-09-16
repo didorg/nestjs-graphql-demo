@@ -18,7 +18,13 @@ export class PetService {
   }
 
   async createPet(petInputDTO: PetInputDTO): Promise<PetOutputDTO> {
-    const petResult = this.petsRepository.create(petInputDTO);
+    // We can also use a mapper
+    const pet = new Pet();
+    pet.id = petInputDTO.id;
+    pet.name = petInputDTO.name;
+    pet.type = petInputDTO.type;
+
+    const petResult = this.petsRepository.create(pet);
     await this.petsRepository.save(petResult);
     return petResult;
   }
