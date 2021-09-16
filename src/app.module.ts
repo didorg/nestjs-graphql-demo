@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PetsModule } from './modules/pets/pets.module';
 import { DatabaseModule } from './persistence/db/database.module';
+import { OwnersModule } from './modules/owners/owners.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { DatabaseModule } from './persistence/db/database.module';
     }),
     PetsModule,
     DatabaseModule,
+    OwnersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
