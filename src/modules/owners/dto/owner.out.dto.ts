@@ -1,8 +1,17 @@
-import { CreateOwnerInput } from './owner.in.dto';
-import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
+import {Field, Int, ObjectType } from '@nestjs/graphql';
+import { PetOutputDTO } from 'src/modules/pets/dto/pet.out.dto';
+import { IsAlpha, IsNotEmpty } from 'class-validator';
 
-@InputType()
-export class UpdateOwnerInput extends PartialType(CreateOwnerInput) {
-  @Field(() => Int)
+@ObjectType()
+export class OwnerOutputDTO {
+  @Field(() => Int, { description: 'description (placeholder)' })
   id: number;
+
+  @Field()
+  @IsNotEmpty()
+  @IsAlpha()
+  name: string;
+
+  @Field(() => PetOutputDTO)
+  pets: PetOutputDTO[];
 }

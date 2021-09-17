@@ -13,24 +13,57 @@ export class PetService {
     private petsRepository: Repository<Pet>,
   ) {}
 
-  async findAll(): Promise<Pet[]> {
-    return this.petsRepository.find();
+  async createPet(petIn: PetInputDTO): Promise<PetOutputDTO> {
+    const pet: Pet = await this.mapperPetInputDTOToPet(petIn);
+    const petCreated: Pet = this.petsRepository.create(pet);
+    const petSaved: Pet = await this.petsRepository.save(petCreated);
+    const petOut: PetOutputDTO = await this.mapperPetToPetOutputDTO(petSaved);
+    return petOut;
   }
 
-  async createPet(petInputDTO: PetInputDTO): Promise<PetOutputDTO> {
-    // We can also use a mapper
-    const pet = new Pet();
-    pet.id = petInputDTO.id;
-    pet.name = petInputDTO.name;
-    pet.type = petInputDTO.type;
-
-    const petResult = this.petsRepository.create(pet);
-    await this.petsRepository.save(petResult);
-    return petResult;
+  async findAll(): Promise<PetOutputDTO[]> {
+    const pets = this.petsRepository.find();
+    const petOutputDTOs = await this.mapperPetsToPetOutputDTOs(pets);
+    return petOutputDTOs;
   }
 
   async findOne(id: number): Promise<PetOutputDTO> {
-    const petById = await this.petsRepository.findOneOrFail(id);
-    return petById;
+    const petById: Pet = await this.petsRepository.findOneOrFail(id);
+    const petOutputDTO = await this.mapperPetToPetOutputDTO(petById);
+    return petOutputDTO;
+  }
+
+  //Mappers
+  // TODO: (To achieve single responsibility) Move these Mappers to a Class PetServiceMapper and Inject it here.
+  private async mapperPetInputDTOToPet(petInputDTO: PetInputDTO): Promise<Pet> {
+    try {
+      const pet = new Pet();
+      pet.id = petInputDTO.id;
+      pet.name = petInputDTO.name;
+      pet.type = petInputDTO.type;
+      pet.owner = petInputDTO.owner;
+      return pet;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  private async mapperPetsToPetOutputDTOs(
+    pets: Promise<Pet[]>,
+  ): Promise<PetOutputDTO[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  private async mapperPetToPetOutputDTO(pet: Pet): Promise<PetOutputDTO> {
+    try {
+      const petOut = new PetOutputDTO();
+      petOut.id = pet.id;
+      petOut.name = pet.name;
+      petOut.type = pet.type;
+      petOut.owner = pet.owner;
+      return petOut;
+    } catch (e) {
+      throw e;
+    }
   }
 }

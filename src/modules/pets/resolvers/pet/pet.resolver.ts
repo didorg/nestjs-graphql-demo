@@ -3,7 +3,7 @@ import { PetInputDTO } from '../../dto/pet.in.dto';
 import { PetOutputDTO } from '../../dto/pet.out.dto';
 import { PetService } from '../../services/pet/pet.service';
 
-@Resolver((of) => PetOutputDTO)
+@Resolver(() => PetOutputDTO)
 export class PetResolver {
   constructor(private petService: PetService) {}
 

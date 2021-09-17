@@ -2,44 +2,40 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type OwnerOutputDTO {
+  """description (placeholder)"""
+  id: Int!
+  name: String!
+  pets: PetOutputDTO!
+}
+
 type PetOutputDTO {
   id: Int!
   name: String!
   type: String
-}
-
-type Owner {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  owner: OwnerOutputDTO
 }
 
 type Query {
   pets: [PetOutputDTO!]!
   pet(id: Int!): PetOutputDTO!
-  owners: [Owner!]!
-  owner(id: Int!): Owner!
 }
 
 type Mutation {
   createPet(PetInputDTO: PetInputDTO!): PetOutputDTO!
-  createOwner(createOwnerInput: CreateOwnerInput!): Owner!
-  updateOwner(updateOwnerInput: UpdateOwnerInput!): Owner!
-  removeOwner(id: Int!): Owner!
+  createOwner(OwnerInputDTO: OwnerInputDTO!): OwnerOutputDTO!
 }
 
 input PetInputDTO {
   id: Int!
   name: String!
   type: String
+  owner: OwnerInputDTO
 }
 
-input CreateOwnerInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
-input UpdateOwnerInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+input OwnerInputDTO {
+  """description (placeholder)"""
   id: Int!
+  name: String!
+  pets: PetInputDTO!
 }

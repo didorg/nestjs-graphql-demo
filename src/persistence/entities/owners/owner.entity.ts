@@ -1,7 +1,16 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import Pet from '../pet/pet.entity';
 
-@ObjectType()
+@Entity()
 export class Owner {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+
+  @OneToMany(() => Pet, pet => pet.owner, {
+    cascade: true, lazy:true
+  })
+  pets: Pet[];
 }
