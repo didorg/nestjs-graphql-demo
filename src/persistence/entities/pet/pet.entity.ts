@@ -12,7 +12,7 @@ class Pet {
   @Column({ nullable: true })
   type?: string;
 
-  @ManyToOne(()=> Owner, owner => owner.pets)
+  @ManyToOne(()=> Owner, owner => owner.pets, { nullable: true })
   owner?: Owner;
 }
 

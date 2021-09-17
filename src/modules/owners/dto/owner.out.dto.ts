@@ -13,5 +13,5 @@ export class OwnerOutputDTO {
   name: string;
 
   @Field(() => PetOutputDTO)
-  pets: PetOutputDTO;
+  pets: PetOutputDTO[];
 }
