@@ -22,7 +22,7 @@ export class PetService {
   }
 
   async findAll(): Promise<PetOutputDTO[]> {
-    const pets = this.petsRepository.find();
+    const pets = await this.petsRepository.find();
     const petOutputDTOs = await this.mapperPetsToPetOutputDTOs(pets);
     return petOutputDTOs;
   }
@@ -49,7 +49,7 @@ export class PetService {
   }
 
   private async mapperPetsToPetOutputDTOs(
-    pets: Promise<Pet[]>,
+    pets: Pet[],
   ): Promise<PetOutputDTO[]> {
     throw new Error('Method not implemented.');
   }
