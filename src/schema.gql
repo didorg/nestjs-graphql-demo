@@ -6,7 +6,7 @@ type OwnerOutputDTO {
   """description (placeholder)"""
   id: Int!
   name: String!
-  pets: PetOutputDTO!
+  pets: [PetOutputDTO!]
 }
 
 type PetOutputDTO {
