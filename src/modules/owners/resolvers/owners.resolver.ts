@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { OwnersService } from './owners.service';
-import { OwnerInputDTO } from './dto/owner.in.dto';
-import { OwnerOutputDTO } from './dto/owner.out.dto';
+import { OwnerInputDTO } from '../dto/owner.in.dto';
+import { OwnerOutputDTO } from '../dto/owner.out.dto';
+import { OwnersService } from '../services/owners.service';
 
 @Resolver(() => OwnerOutputDTO)
 export class OwnersResolver {
