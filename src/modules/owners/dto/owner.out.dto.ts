@@ -12,6 +12,6 @@ export class OwnerOutputDTO {
   @IsAlpha()
   name: string;
 
-  @Field(() => PetOutputDTO)
+  @Field(() => [PetOutputDTO], {nullable: true})
   pets: PetOutputDTO[];
 }
