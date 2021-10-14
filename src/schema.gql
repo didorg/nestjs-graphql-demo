@@ -27,7 +27,7 @@ type Mutation {
 }
 
 input PetInputDTO {
-  id: Int!
+  id: Int
   name: String!
   type: String
   owner: OwnerInputDTO
