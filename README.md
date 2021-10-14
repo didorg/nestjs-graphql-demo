@@ -18,6 +18,21 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+### GraphQL endpoint  
+`http://localhost:3000/graphql`  
+  - Create a Pet:  
+  ```
+   mutation{
+   createPet(PetInputDTO:{
+     name: "Campeon",
+     type: "Dog"
+   }){
+     id,
+     name,
+     type
+   }
+ }
+  ```
 
 ## Test
 
