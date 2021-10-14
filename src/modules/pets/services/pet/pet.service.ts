@@ -51,7 +51,14 @@ export class PetService {
   private async mapperPetsToPetOutputDTOs(
     pets: Pet[],
   ): Promise<PetOutputDTO[]> {
-    throw new Error('Method not implemented.');
+    let petsOut: PetOutputDTO[] = [];
+
+    for (let pet of pets) {
+      let petOut = await this.mapperPetToPetOutputDTO(pet);
+      petsOut.push(petOut);
+    }
+
+    return petsOut;
   }
 
   private async mapperPetToPetOutputDTO(pet: Pet): Promise<PetOutputDTO> {
