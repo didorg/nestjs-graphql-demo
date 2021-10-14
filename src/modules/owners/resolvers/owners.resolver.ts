@@ -7,9 +7,24 @@ import { OwnersService } from '../services/owners.service';
 export class OwnersResolver {
   constructor(private readonly ownersService: OwnersService) {}
 
+  @Query(() => [OwnerOutputDTO])
+  async owners(): Promise<OwnerOutputDTO[]> {
+    const owners = await this.ownersService.findAll();
+    return owners;
+  }
+
+  @Query(() => OwnerOutputDTO)
+  async owner(
+    @Args('id', { type: () => Int }) id: number,
+  ): Promise<OwnerOutputDTO> {
+    const owner = await this.ownersService.findOne(id);
+    return owner;
+  }
+
   @Mutation(() => OwnerOutputDTO)
-  createOwner(@Args('OwnerInputDTO') ownerInputDTO: OwnerInputDTO) {
-    return this.ownersService.createOwner(ownerInputDTO);
+  createOwner(@Args('OwnerInputDTO') ownerInputDTO: OwnerInputDTO): Promise<OwnerOutputDTO> {
+    const ownerOut = this.ownersService.createOwner(ownerInputDTO);
+    return ownerOut;
   }
 
   // @Query(() => [Owner], { name: 'owners' })

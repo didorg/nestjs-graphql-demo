@@ -9,18 +9,23 @@ export class PetResolver {
 
   @Query(() => [PetOutputDTO])
   async pets(): Promise<PetOutputDTO[]> {
-    return await this.petService.findAll();
+    const pets = await this.petService.findAll();
+    return pets;
   }
 
   @Query(() => PetOutputDTO)
-  async pet(@Args('id', {type: () => Int}) id: number): Promise<PetOutputDTO> {
-    return await this.petService.findOne(id);
+  async pet(
+    @Args('id', { type: () => Int }) id: number,
+  ): Promise<PetOutputDTO> {
+    const pet = await this.petService.findOne(id);
+    return pet;
   }
 
   @Mutation(() => PetOutputDTO)
   async createPet(
     @Args('PetInputDTO') petInputDTO: PetInputDTO,
   ): Promise<PetOutputDTO> {
-    return await this.petService.createPet(petInputDTO);
+    const petOut = await this.petService.createPet(petInputDTO);
+    return petOut;
   }
 }
