@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { OwnersService } from '../services/owners.service';
 import { OwnersResolver } from './owners.resolver';
-import { OwnersService } from './owners.service';
+
 
 describe('OwnersResolver', () => {
   let resolver: OwnersResolver;

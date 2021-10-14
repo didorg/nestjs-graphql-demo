@@ -2,8 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Owner } from 'src/persistence/entities/owners/owner.entity';
 import { Repository } from 'typeorm';
-import { OwnerInputDTO } from './dto/owner.in.dto';
-import { OwnerOutputDTO } from './dto/owner.out.dto';
+import { OwnerInputDTO } from '../dto/owner.in.dto';
+import { OwnerOutputDTO } from '../dto/owner.out.dto';
+
 
 @Injectable()
 export class OwnersService {
