@@ -4,7 +4,7 @@ import { OwnerInputDTO } from 'src/modules/owners/dto/owner.in.dto';
 
 @InputType()
 export class PetInputDTO {
-  @Field(() => Int, { nullable: false })
+  @Field(() => Int, { nullable: true })
   id: number;
 
   @Field()
