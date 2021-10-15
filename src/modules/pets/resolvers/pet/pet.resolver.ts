@@ -14,7 +14,7 @@ export class PetResolver {
   }
 
   @Query(() => PetOutputDTO)
-  async pet(
+  async petById(
     @Args('id', { type: () => Int }) id: number,
   ): Promise<PetOutputDTO> {
     const pet = await this.petService.findOne(id);

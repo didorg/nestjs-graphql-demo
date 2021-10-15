@@ -14,7 +14,7 @@ export class OwnersResolver {
   }
 
   @Query(() => OwnerOutputDTO)
-  async owner(
+  async ownerById(
     @Args('id', { type: () => Int }) id: number,
   ): Promise<OwnerOutputDTO> {
     const owner = await this.ownersService.findOne(id);

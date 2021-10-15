@@ -18,9 +18,9 @@ type PetOutputDTO {
 
 type Query {
   pets: [PetOutputDTO!]!
-  pet(id: Int!): PetOutputDTO!
+  petById(id: Int!): PetOutputDTO!
   owners: [OwnerOutputDTO!]!
-  owner(id: Int!): OwnerOutputDTO!
+  ownerById(id: Int!): OwnerOutputDTO!
 }
 
 type Mutation {
